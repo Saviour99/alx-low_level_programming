@@ -2,7 +2,7 @@
 
 /**
  * main - Main function
- * Return: 0
+ * Return: (0)
  */
 
 int main(void)
@@ -13,7 +13,7 @@ int main(void)
 		(lower_case <= 'z');
 	{
 		putchar(lower_case);
-		lower_case = lower_case + 1;
+		lower_case += 1;
 	}
 	return (0);
 }
