@@ -4,10 +4,11 @@
 
 /**
  * main - Main function
- * Return: (0 was a success)
-*/
+ * Return: (0)
+ */
 
 int main(void)
+
 {
 	int n;
 	int last_d;
