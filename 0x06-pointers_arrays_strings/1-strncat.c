@@ -4,6 +4,7 @@
  *_strncat - concatinate two strings
  *@dest: string 1
  *@src: string 2
+ *@n: number of characters to use
  *Return: string
  */
 
