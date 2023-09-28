@@ -1,5 +1,12 @@
 #include "main.h"
 
+/**
+ *supporting_function - print the square root of a number
+ *@number: number
+ *@root: input
+ *Return: square root
+ */
+
 int supporting_function(int number, int root)
 {
 	if ((root * root) > number)
