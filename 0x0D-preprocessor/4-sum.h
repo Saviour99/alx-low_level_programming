@@ -2,4 +2,4 @@
 
 #define SUM(x, y) ((x) + (y))
 
-#endif /*#ifndef SUM*/
+#endif /*#ifndef SUM(x, y)*/
