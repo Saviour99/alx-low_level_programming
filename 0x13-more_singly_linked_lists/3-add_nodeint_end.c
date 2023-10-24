@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- *add_nodeint_end - add a new node at the beginning
+ *add_nodeint_end - add a new node at the end
  *@head: head of a node
  *@n: data of the node
  *
@@ -22,5 +22,5 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 		temp = temp->next;
 	}
 	temp->next = current;
-	return (current->next);
+	return (current);
 }
