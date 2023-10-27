@@ -9,22 +9,14 @@
 
 void print_binary(unsigned long int n)
 {
-	int i;
-	if (n == 0)
+	if (n >> 0)
+	{
+		if (n >> 1)
+			print_binary(n >> 1);
+		_putchar((n & 1) + '0');
+	}
+	else
 	{
 		_putchar('0');
-		return;
-	}
-
-	int bits = sizeof(n) * 8;
-
-	int len = bits - 1;
-
-	while (!((n >> len) & 1))
-		len--;
-
-	for (i = len; i >= 0; i--)
-	{
-		_putchar((n && (1u << 1)) ? '1' : '0');
 	}
 }
