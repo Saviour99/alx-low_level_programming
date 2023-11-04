@@ -10,27 +10,30 @@
 
 int create_file(const char *filename, char *text_content)
 {
-	FILE *fptr;
+	int fd, i;
 
 	if (filename == NULL)
 		return (-1);
+
+	fd = open(filename, 0_CREAT | 0_WRONLY | 0_TRUNC, 0600);
+
+	if (fd == -1)
+		return (-1);
+
 	if (text_content == NULL)
 		text_content = "";
 
-	fptr = open(filename, 0_CREAT | 0_WRONLY | 0_TRUNC, 0600);
+	for (i = 0; text_content[i] != '\0'; i++)
+	{}
 
-	if (fptr == NULL)
-		return (-1);
 	if (text_content)
 	{
-		ssize_t written_bytes = write(fptr, text_content, strlen(text_content));
+		ssize_t written_bytes = write(fd, text_content, i);
+
 		if (written_bytes == -1)
-		{
-			close(fptr);
 			return (-1);
-		}
 	}
 
-	close(fptr);
+	close(fd);
 	return (1);
 }
