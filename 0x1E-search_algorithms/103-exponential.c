@@ -36,13 +36,13 @@ int exponential_search(int *array, size_t size, int value)
 
 	while (array[i] <= value && i < size - 1)
 	{
-		printf("Value checked array[%ld] = [%d]\n", i, array[i]);
+		printf("Value checked array[%lu] = [%d]\n", i, array[i]);
 		i = i * 2;
 	}
 
 	bound = fmin_custom(i, size - 1);
 
-	printf("Value found between indexes [%ld] and [%ld]\n", i / 2, bound);
+	printf("Value found between indexes [%lu] and [%lu]\n", i / 2, bound);
 
 	return (bin_search(array, i / 2, bound, value));
 }
