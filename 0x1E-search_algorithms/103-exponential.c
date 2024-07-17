@@ -1,6 +1,20 @@
 #include "search_algos.h"
 
 /**
+ * fmin_custom - Custom implementation of fmin function
+ * to find the minimum of two numbers
+ * @a: First number
+ * @b: Second number
+ *
+ * Return: The minimum of the two numbers
+ */
+
+static inline double fmin_custom(double a, double b)
+{
+	return ((a < b) ? a : b);
+}
+
+/**
  * exponential search - function that searches for a value in a sorted
  * array of integers using the exponential search algorithm
  * @array: A pointer to the first element of the array
@@ -26,7 +40,7 @@ int exponential_search(int *array, size_t size, int value)
 		i = i * 2;
 	}
 
-	bound = fmin(i, size - 1);
+	bound = fmin_custom(i, size - 1);
 
 	printf("Value found between indexes [%ld] and [%ld]\n", i / 2, bound);
 
