@@ -1,35 +1,63 @@
 #include "search_algos.h"
 
 /**
- * advanced_binary - function that searches for a value in a sorted array
- * @array: pointer to the first element of the array
- * @size: number of elements in array
- * @value: the value to search for
+ * bin_search - function that searches for a value in a sorted
+ * array of integers using the binary search algorithm
+ * @array: A pointer to the first element of the array
+ * @low: The lowest element in the array
+ * @high: The highest element in the array
+ * @value: The value to search for
  *
- * Return: value if found and -1 if not found
+ * Return: The first index where the value is located, or -1 if not found
  */
 
-int advanced_binary(int *array, size_t size, int value)
+int bin_search(int *array, int low, int high, int value)
 {
-	size_t i;
-	size_t mid = size / 2;
+	int i, mid;
 
-	if (array == NULL || size == 0)
+	if (low > high)
 		return (-1);
 
 	printf("Searching in array: ");
-	for (i = 0; i < size; i++)
+	for (i = low; i <= high; i++)
 	{
 		printf("%d", array[i]);
-		if (i < size - 1)
+		if (i < high)
 			printf(", ");
 	}
 	printf("\n");
 
-	if (array[mid] == value)
-		return (mid);
-	else if (array[mid] < value)
-		return (mid + 1 + advanced_binary(array + mid + 1, size - mid - 1, value));
+	mid = low + (high - low) / 2;
+
+	if (value == array[mid])
+	{
+		if (mid == low || array[mid - 1] != value)
+			return (mid);
+		else
+			return (bin_search(array, low, mid - 1, value));
+	}
+	else if (value < array[mid])
+	{
+		return (bin_search(array, low, mid - 1, value));
+	}
 	else
-		return (advanced_binary(array, mid, value));
+		return (bin_search(array, mid + 1, high, value));
+}
+
+/**
+ * advanced_binary - function that searches for a value in an array of
+ * integers using the advanced binary search algorithm
+ * @array: A pointer to the first element of the array
+ * @size: The number of elements in the array
+ * @value: The value to search for
+ *
+ * Return: The first index where the value is located, or -1 if not found
+ */
+
+int advanced_binary(int *array, size_t size, int value)
+{
+	if (array == NULL || size == 0)
+		return (-1);
+
+	return (bin_search(array, 0, size - 1, value));
 }
